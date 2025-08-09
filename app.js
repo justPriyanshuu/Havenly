@@ -22,7 +22,7 @@ app.get('/testlisting', async (req, res) => {
     country: 'india',
   });
   await samplelisting.save();
-  res.send('testing complete')
+  res.send('testing complete');
 });
 
 app.listen(8080, () => {
