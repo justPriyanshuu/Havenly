@@ -12,14 +12,35 @@ async function main() {
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.send('Hi , i am root');
 });
 
+// index route
 app.get('/listings', async (req, res) => {
   const allListings = await Listing.find({});
   res.render('listings/home.ejs', { allListings });
+});
+
+//add route
+app.get('/listings/add', (req, res) => {
+  res.render('listings/add.ejs');
+});
+
+//create route
+app.post('/listings', async (req, res) => {
+  const newListing = new Listing(req.body.listing);
+  await newListing.save();
+  res.redirect('/listings');
+});
+
+//show route
+app.get('/listings/:id', async (req, res) => {
+  const { id } = req.params;
+  const listing = await Listing.findById(id);
+  res.render('listings/show.ejs', { listing });
 });
 
 // app.get('/testlisting', async (req, res) => {
