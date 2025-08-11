@@ -76,7 +76,7 @@ footer {
 }
 
 .f-icons i:hover {
-  color: #b20928; /* subtle accent on hover */
+  color: #b20928; 
   cursor: pointer;
 }
 
@@ -94,4 +94,55 @@ footer {
 
 .f-links a:hover {
   color: #ff385c;
+}
+
+.listings-page {
+  background-color: #fafafa !important;
+  min-height: 100vh; 
+}
+
+.listings-title {
+  font-weight: 600 !important;
+  font-size: 2rem !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center !important;
+}
+
+.listing-card {
+  border: none !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  margin-bottom: 2rem;
+}
+
+.listing-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
+}
+
+.listing-card-img {
+  object-fit: cover !important;
+  width: 100% !important;
+}
+
+.listing-card-body {
+  padding: 1rem !important;
+}
+
+.listing-card-text {
+  margin: 0 !important;
+  color: #222 !important;
+  font-size: 1rem !important;
+}
+
+.listing-card-text b {
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+}
+
+.listing-link {
+  text-decoration: none !important;
+  color: inherit !important;
 }
