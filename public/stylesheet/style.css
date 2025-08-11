@@ -17,9 +17,11 @@
 
 .navbar-brand i {
   font-size: 1.4rem;
+  color: #b20928;
 }
 
 .navbar-brand p {
+  color: #b20928;
   margin: 0; /* remove default margin */
   font-size: 1.4rem; /* you can uncomment if needed */
 }
