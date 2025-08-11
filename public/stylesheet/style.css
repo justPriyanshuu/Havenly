@@ -1,0 +1,95 @@
+.navbar {
+  background-color: #fff;
+  padding: 0.5rem 1.5rem;
+  box-shadow: none;
+  border-bottom: 1px solid #eee;
+  font-family: 'Arial', sans-serif;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem; /* space between icon and paragraph */
+  color: #ff385c;
+}
+
+.navbar-brand i {
+  font-size: 1.4rem;
+}
+
+.navbar-brand p {
+  margin: 0; /* remove default margin */
+  font-size: 1.4rem; /* you can uncomment if needed */
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.nav-link {
+  color: #222;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  filter: brightness(0) invert(0.3);
+}
+
+footer {
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid #eaeaea;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.f-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.f-icons {
+  font-size: 1.5rem;
+  color: #888;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.f-icons i:hover {
+  color: #ff385c; /* subtle accent on hover */
+  cursor: pointer;
+}
+
+.f-company {
+  color: #333;
+  font-weight: 600;
+}
+
+.f-links a {
+  color: #555;
+  margin: 0 0.8rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.f-links a:hover {
+  color: #ff385c;
+}
