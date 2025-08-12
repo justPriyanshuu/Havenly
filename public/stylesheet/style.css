@@ -161,3 +161,104 @@ footer {
   background-color: #b20928 !important;
   border: none !important;
 }
+
+.page-title {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.page-title h3 {
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.show-card {
+  max-width: 700px !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 1.5rem !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-img {
+  width: 70% !important;
+  height: 45vh !important;
+  object-fit: cover !important;
+  border-radius: 1.5rem !important;
+}
+
+.card-details {
+  padding: 0rem 0 !important;
+  line-height: 1.4;
+  color: #333;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.listing-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #222;
+  margin-bottom: -1rem;
+  margin-top: -0.7rem !important;
+  display: block;
+}
+
+.listing-dec,
+.listing-price,
+.listing-location,
+.listing-country {
+  font-size: 1rem;
+  color: #555;
+}
+
+.listing-price {
+  color: #ff385c;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.card-buttons {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.edit-btn,
+.dlt-btn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  border: none !important;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.edit-btn {
+  background-color: #ff385c;
+}
+
+.edit-btn:hover {
+  background-color: #e63251;
+}
+
+.dlt-btn {
+  background-color: #555;
+}
+
+.dlt-btn:hover {
+  background-color: #333;
+}

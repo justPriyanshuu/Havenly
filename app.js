@@ -5,7 +5,6 @@ const Listing = require('../Havenly/models/listing.js');
 const path = require('path');
 const methodOverride = require('method-override');
 const engine = require('ejs-mate');
-const { dir } = require('console');
 
 main().catch((err) => console.log(err));
 
