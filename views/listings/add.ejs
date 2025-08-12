@@ -1,8 +1,10 @@
 <% layout('/layouts/boilerplate') %>
 <div class="row">
-  <div class="col-8">
+  <div class="col-8 offset-2">
     <body>
-      <h3>Create a Listing</h3>
+      <div class="text-center">
+        <h3>Create a Listing</h3>
+      </div>
       <form action="/listings" method="post">
         <div class="mb-2">
           <label for="title" class="form-label">Title</label>
@@ -23,15 +25,6 @@
           />
         </div>
         <div class="mb-2">
-          <label for="price" class="form-label">Price</label>
-          <input
-            type="number"
-            name="listing[price]"
-            class="form-control"
-            placeholder="Enter price"
-          />
-        </div>
-        <div class="mb-2">
           <label for="image" class="form-label">Image Link</label>
           <input
             type="text"
@@ -40,14 +33,25 @@
             placeholder="Enter image link/url"
           />
         </div>
-        <div class="mb-2">
-          <label for="country" class="form-label">Country</label>
-          <input
-            type="text"
-            name="listing[country]"
-            class="form-control"
-            placeholder="Enter country"
-          />
+        <div class="row">
+          <div class="mb-2 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              name="listing[price]"
+              class="form-control"
+              placeholder="Enter price"
+            />
+          </div>
+          <div class="mb-2 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input
+              type="text"
+              name="listing[country]"
+              class="form-control"
+              placeholder="Enter country"
+            />
+          </div>
         </div>
         <div class="mb-2">
           <label for="location" class="form-label">Location</label>
@@ -58,8 +62,7 @@
             placeholder="Enter location"
           />
         </div>
-        <br />
-        <button class="btn btn-dark" type="submit">Add</button>
+        <button class="btn btn-dark mb-2 add-btn" type="submit">Add</button>
       </form>
     </body>
   </div>

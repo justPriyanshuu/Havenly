@@ -1,3 +1,13 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}
+
 .navbar {
   background-color: #fff;
   padding: 0.5rem 1.5rem;
@@ -76,7 +86,7 @@ footer {
 }
 
 .f-icons i:hover {
-  color: #b20928; 
+  color: #b20928;
   cursor: pointer;
 }
 
@@ -98,7 +108,7 @@ footer {
 
 .listings-page {
   background-color: #fafafa !important;
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 
 .listings-title {
@@ -112,14 +122,14 @@ footer {
   border: none !important;
   border-radius: 12px !important;
   overflow: hidden !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease !important;
   margin-bottom: 2rem;
 }
 
 .listing-card:hover {
   transform: translateY(-4px) !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
 }
 
 .listing-card-img {
@@ -145,4 +155,9 @@ footer {
 .listing-link {
   text-decoration: none !important;
   color: inherit !important;
+}
+
+.add-btn {
+  background-color: #b20928 !important;
+  border: none !important;
 }
