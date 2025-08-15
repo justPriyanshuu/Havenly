@@ -5,7 +5,7 @@
       <div class="text-center">
         <h3>Create a Listing</h3>
       </div>
-      <form action="/listings" method="post">
+      <form action="/listings" method="post" novalidate class="needs-validation">
         <div class="mb-2">
           <label for="title" class="form-label">Title</label>
           <input
@@ -13,6 +13,7 @@
             name="listing[title]"
             class="form-control"
             placeholder="Enter a catchy title"
+            required
           />
         </div>
         <div class="mb-2">
@@ -22,6 +23,7 @@
             name="listing[description]"
             class="form-control"
             placeholder="Enter description"
+            required
           />
         </div>
         <div class="mb-2">
@@ -41,6 +43,7 @@
               name="listing[price]"
               class="form-control"
               placeholder="Enter price"
+              required
             />
           </div>
           <div class="mb-2 col-md-8">
@@ -50,6 +53,7 @@
               name="listing[country]"
               class="form-control"
               placeholder="Enter country"
+              required
             />
           </div>
         </div>
@@ -60,6 +64,7 @@
             name="listing[location]"
             class="form-control"
             placeholder="Enter location"
+            required
           />
         </div>
         <button class="btn btn-dark mb-2 add-btn" type="submit">Add</button>
