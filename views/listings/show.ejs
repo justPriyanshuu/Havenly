@@ -1,13 +1,12 @@
 <% layout('/layouts/boilerplate') %>
 <body>
   <div class="text-center page-title">
-    <h3>Listing Details</h3>
+    <h3><%= listing.title %></h3>
   </div>
   <div class="card show-card">
     <img src="<%= listing.image.url %>" class="card-img" alt="listing-image" />
     <div class="card-body card-details">
       <p class="card-text">
-        <span class="listing-title"><b><%= listing.title %></b></span>
         <br />
         <span class="listing-dec"><%= listing.description %></span>
         <br />

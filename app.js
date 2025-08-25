@@ -35,10 +35,14 @@ app.get('/listings/add', (req, res) => {
 });
 
 //create route
-app.post('/listings', async (req, res) => {
-  const newListing = new Listing(req.body.listing);
-  await newListing.save();
-  res.redirect('/listings');
+app.post('/listings', async (req, res, next) => {
+  try {
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
+    res.redirect('/listings');
+  } catch (err) {
+    res.send(err);
+  }
 });
 
 //show route
@@ -69,17 +73,9 @@ app.delete('/listings/:id', async (req, res) => {
   res.redirect('/listings');
 });
 
-// app.get('/testlisting', async (req, res) => {
-//   const samplelisting = new Listing({
-//     title: 'new villa',
-//     description: 'Near the beach',
-//     price: 1500,
-//     location: 'goa',
-//     country: 'india',
-//   });
-//   await samplelisting.save();
-//   res.send('testing complete');
-// });
+app.use((err, req, res, next) => {
+  res.send('Something Went Wrong!');
+});
 
 app.listen(8080, () => {
   console.log('server is listening to port 8080');
