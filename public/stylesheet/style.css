@@ -331,3 +331,67 @@ textarea.form-control:focus {
   background: #e72f50 !important;
   transform: translateY(-2px) !important;
 }
+
+.review-title {
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  color: #222 !important;
+  margin-bottom: 2rem !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.allReviews {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  gap: 1.5rem !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+}
+
+.review-card {
+  background-color: #fff !important;
+  border-radius: 12px !important;
+  padding: 1rem !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.review-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12) !important;
+}
+
+.card-title {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.6rem !important;
+  color: #222 !important;
+}
+
+.review-rating {
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  color: #ff385c !important;
+}
+
+.review-delete {
+  background-color: #df3353 !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 6px 14px !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.review-delete:hover {
+  background-color: #e11d48 !important;
+  box-shadow: 0 4px 12px rgba(255, 56, 92, 0.3) !important;
+}

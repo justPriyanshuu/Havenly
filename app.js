@@ -49,7 +49,7 @@ app.post('/listings', async (req, res, next) => {
 //show route
 app.get('/listings/:id', async (req, res) => {
   const { id } = req.params;
-  const listing = await Listing.findById(id);
+  const listing = await Listing.findById(id).populate('reviews');
   res.render('listings/show.ejs', { listing });
 });
 
@@ -84,6 +84,14 @@ app.post('/listings/:id/review', async (req, res) => {
   await listing.save();
 
   res.redirect(`/listings/${listing._id}`);
+});
+
+//Review Delete
+app.delete('/listings/:id/reviews/:reviewId', async (req, res) => {
+  const { id, reviewId } = req.params;
+  await Review.findByIdAndDelete(reviewId);
+  await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+  res.redirect(`/listings/${id}`);
 });
 
 app.use((err, req, res, next) => {
