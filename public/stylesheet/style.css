@@ -262,3 +262,72 @@ footer {
 .dlt-btn:hover {
   background-color: #333;
 }
+
+div.reviews {
+  background: transparent !important;
+  color: #333 !important;
+  padding: 2rem !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+  max-width: 480px !important;
+  margin: 2rem auto !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.reviews h4 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 1.2rem !important;
+  text-align: center !important;
+  color: #222 !important;
+}
+
+.form-label {
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 0.4rem !important;
+  display: block !important;
+  color: #555 !important;
+}
+
+.form-range {
+  width: 100% !important;
+  accent-color: #ff385c !important; /* Airbnb pink/red accent */
+  margin-bottom: 1rem !important;
+}
+
+
+textarea.form-control {
+  resize: none !important;
+  border-radius: 8px !important;
+  border: 1px solid #ddd !important;
+  background: #fafafa !important;
+  color: #333 !important;
+  padding: 0.75rem !important;
+  width: 100% !important;
+  transition: border 0.2s, box-shadow 0.2s !important;
+}
+
+textarea.form-control:focus {
+  outline: none !important;
+  border: 1px solid #ff385c !important;
+  box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.15) !important;
+}
+
+.review-btn {
+  background: #ff385c !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  padding: 0.65rem 1.2rem !important;
+  border: 1px solid black !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: background 0.3s ease, transform 0.2s ease !important;
+  width: 100% !important;
+  margin-top: 1rem !important;
+}
+
+.review-btn:hover {
+  background: #e72f50 !important;
+  transform: translateY(-2px) !important;
+}

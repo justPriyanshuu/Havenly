@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const Listing = require('../Havenly/models/listing.js');
+const Review = require('../Havenly/models/review.js');
 const path = require('path');
 const methodOverride = require('method-override');
 const engine = require('ejs-mate');
@@ -71,6 +72,18 @@ app.delete('/listings/:id', async (req, res) => {
   const { id } = req.params;
   await Listing.findByIdAndDelete(id);
   res.redirect('/listings');
+});
+
+//Review Post
+app.post('/listings/:id/review', async (req, res) => {
+  const { id } = req.params;
+  const listing = await Listing.findById(id);
+  const newReview = new Review(req.body.review);
+  await newReview.save();
+  listing.reviews.push(newReview);
+  await listing.save();
+
+  res.redirect(`/listings/${listing._id}`);
 });
 
 app.use((err, req, res, next) => {
