@@ -43,6 +43,8 @@ router.get('/:id/edit', async (req, res) => {
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
   await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+  req.flash('success', 'Listing Updated!');
+
   res.redirect(`/listings/${id}`);
 });
 
@@ -50,6 +52,8 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   await Listing.findByIdAndDelete(id);
+  req.flash('success', 'Listing Deleted!');
+
   res.redirect('/listings');
 });
 

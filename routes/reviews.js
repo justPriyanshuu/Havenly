@@ -15,6 +15,8 @@ router.post('/', async (req, res) => {
     await newReview.save();
     listing.reviews.push(newReview);
     await listing.save();
+    req.flash('success', 'New Review Created!');
+
     res.redirect(`/listings/${listing._id}`);
   } catch (e) {
     res.status(500).send('Something went wrong');
@@ -27,6 +29,7 @@ router.delete('/:reviewId', async (req, res) => {
     const { id, reviewId } = req.params;
     await Review.findByIdAndDelete(reviewId);
     await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+    req.flash('success', 'Review Deleted!');
     res.redirect(`/listings/${id}`);
   } catch (e) {
     res.status(500).send('Something went wrong');
