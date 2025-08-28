@@ -7,8 +7,14 @@ const engine = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
 
-const listing = require('./routes/listing.js');
-const review = require('./routes/reviews.js');
+const passport = reqire('passport');
+const LocalStrategy = require('passport-local');
+
+const user = require('./models/user.js');
+
+const listingRouter = require('./routes/listing.js');
+const reviewRouter = require('./routes/reviews.js');
+const userRouter = require('./routes/user.js');
 
 const sessionOptions = {
   secret: 'mysecretCode',
@@ -41,20 +47,27 @@ app.get('/', (req, res) => {
 app.use(session(sessionOptions));
 app.use(flash());
 
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use((req, res, next) => {
   res.locals.success = req.flash('success');
   res.locals.error = req.flash('error');
   next();
 });
 
-app.use('/listings', listing);
-app.use('/listings/:id/reviews', review);
+app.use('/listings', listingRouter);
+app.use('/listings/:id/reviews', reviewRouter);
+app.use('/', userRouter);
 
 app.use((err, req, res, next) => {
   console.error('❌ Error caught:', err.stack);
   res.status(500).send('Something went wrong: ' + err.message);
 });
-
 
 app.listen(8080, () => {
   console.log('server is listening to port 8080');
