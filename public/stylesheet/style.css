@@ -395,3 +395,79 @@ textarea.form-control:focus {
   background-color: #e11d48 !important;
   box-shadow: 0 4px 12px rgba(255, 56, 92, 0.3) !important;
 }
+
+/* Signup Page Wrapper */
+.signup-page {
+  background-color: #fafafa !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100vh !important;
+  width: 100% !important;
+  font-family: 'Inter', sans-serif !important;
+  /* padding: 1rem !important; */
+}
+
+/* Form Container */
+.signup-page .signUp-container {
+  background: #ffffff !important;
+  padding: 2.5rem !important;
+  border-radius: 16px !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1) !important;
+  width: 100% !important;
+  max-width: 420px !important;
+}
+
+/* Labels */
+.signup-page label {
+  font-weight: 600 !important;
+  color: #222 !important;
+  font-size: 0.9rem !important;
+  margin-bottom: 0.4rem !important;
+  display: inline-block !important;
+}
+
+/* Input Fields */
+.signup-page input {
+  border-radius: 10px !important;
+  border: 1px solid #ddd !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 0.95rem !important;
+  width: 100% !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.signup-page input:focus {
+  border-color: #ff385c !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.25) !important;
+}
+
+/* Button */
+.signup-page .signupBtn {
+  margin-top: 1.5rem !important;
+  background: #ff385c !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  text-align: center !important;
+  padding: 0.9rem !important;
+  border-radius: 12px !important;
+  cursor: pointer !important;
+  transition: background 0.3s ease !important;
+  border: none !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+.signup-page .signupBtn:hover {
+  background: #e03150 !important;
+}
+
+/* Small screen optimization */
+@media (max-width: 576px) {
+  .signup-page .signUp-container {
+    padding: 2rem 1.5rem !important;
+    border-radius: 12px !important;
+  }
+}

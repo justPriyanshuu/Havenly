@@ -7,10 +7,10 @@ const engine = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
 
-const passport = reqire('passport');
+const passport = require('passport');
 const LocalStrategy = require('passport-local');
 
-const user = require('./models/user.js');
+const User = require('./models/user.js');
 
 const listingRouter = require('./routes/listing.js');
 const reviewRouter = require('./routes/reviews.js');
