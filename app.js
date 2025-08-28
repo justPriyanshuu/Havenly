@@ -5,6 +5,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const engine = require('ejs-mate');
 const session = require('express-session');
+const flash = require('connect-flash');
 
 const listing = require('./routes/listing.js');
 const review = require('./routes/reviews.js');
@@ -19,8 +20,6 @@ const sessionOptions = {
     httpOnly: true,
   },
 };
-
-app.use(session(sessionOptions));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -37,6 +36,14 @@ async function main() {
 
 app.get('/', (req, res) => {
   res.send('Hi , i am root');
+});
+
+app.use(session(sessionOptions));
+app.use(flash());
+
+app.use((req, res, next) => {
+  res.locals.success = req.flash('success');
+  next();
 });
 
 app.use('/listings', listing);
