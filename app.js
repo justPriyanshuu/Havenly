@@ -43,6 +43,7 @@ app.use(flash());
 
 app.use((req, res, next) => {
   res.locals.success = req.flash('success');
+  res.locals.error = req.flash('error');
   next();
 });
 
@@ -50,8 +51,10 @@ app.use('/listings', listing);
 app.use('/listings/:id/reviews', review);
 
 app.use((err, req, res, next) => {
-  res.send('Something Went Wrong!');
+  console.error('❌ Error caught:', err.stack);
+  res.status(500).send('Something went wrong: ' + err.message);
 });
+
 
 app.listen(8080, () => {
   console.log('server is listening to port 8080');

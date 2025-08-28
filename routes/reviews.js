@@ -16,7 +16,6 @@ router.post('/', async (req, res) => {
     listing.reviews.push(newReview);
     await listing.save();
     req.flash('success', 'New Review Created!');
-
     res.redirect(`/listings/${listing._id}`);
   } catch (e) {
     res.status(500).send('Something went wrong');
