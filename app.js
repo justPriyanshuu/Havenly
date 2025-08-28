@@ -4,9 +4,18 @@ const mongoose = require('mongoose');
 const path = require('path');
 const methodOverride = require('method-override');
 const engine = require('ejs-mate');
+const session = require('express-session');
 
 const listing = require('./routes/listing.js');
 const review = require('./routes/reviews.js');
+
+const sessionOptions = {
+  secret: 'mysecretCode',
+  resave: false,
+  saveUninitialized: true,
+};
+
+app.use(session(sessionOptions));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -20,7 +29,6 @@ main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/Havenly');
 }
-
 
 app.get('/', (req, res) => {
   res.send('Hi , i am root');
