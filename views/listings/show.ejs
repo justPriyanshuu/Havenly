@@ -38,6 +38,7 @@
       <h5 class="card-title"><%= review.author.username %></h5>
       <p class="review-comment"><%= review.comment %></p>
       <p class="review-rating"><%= review.rating %></p>
+      <% if(currUser && review.author.equals(currUser._id)){ %>
       <form
         action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
         method="POST"
@@ -45,6 +46,7 @@
       >
         <button class="review-delete">Delete</button>
       </form>
+      <% } %>
     </div>
     <% } %>
   </div>
