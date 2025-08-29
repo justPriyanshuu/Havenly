@@ -16,7 +16,15 @@
       <div class="navbar-nav">
         <a class="nav-link" aria-current="page" href="/">Home</a>
         <a class="nav-link" href="/listings">All Listing</a>
-        <a class="nav-link" href="/listings/add">Add</a>
+        <a class="nav-link" href="/listings/add">Create</a>
+      </div>
+      <div class="navbar-nav">
+        <%if(!currUser){%>
+        <a class="nav-link" aria-current="page" href="/login">Login</a>
+        <% } %> <%if(currUser){%>
+        <span class="nav-link disabled">Hello, <%= currUser.username %></span>
+        <a class="nav-link" href="/logout">Logout</a>
+        <% } %>
       </div>
     </div>
   </div>

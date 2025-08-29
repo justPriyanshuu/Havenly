@@ -9,12 +9,12 @@ router.get('/', async (req, res) => {
 });
 
 //add route
-router.get('/add', (req, res) => {
+router.get('/add',isLoggedIn, (req, res) => {
   res.render('listings/add.ejs');
 });
 
 //create route
-router.post('/', isLoggedIn, async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const newListing = new Listing(req.body.listing);
     await newListing.save();
