@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 });
 
 //add route
-router.get('/add',isLoggedIn, (req, res) => {
+router.get('/add', isLoggedIn, (req, res) => {
   res.render('listings/add.ejs');
 });
 
@@ -17,6 +17,7 @@ router.get('/add',isLoggedIn, (req, res) => {
 router.post('/', async (req, res, next) => {
   try {
     const newListing = new Listing(req.body.listing);
+    newListing.owner = req.user._id;
     await newListing.save();
     req.flash('success', 'New Listing Created!');
     res.redirect('/listings');
@@ -28,7 +29,7 @@ router.post('/', async (req, res, next) => {
 //show route
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
-  const listing = await Listing.findById(id).populate('reviews');
+  const listing = await Listing.findById(id).populate('reviews').populate('owner');
   if (!listing) {
     req.flash('error', 'Listing Not Found!');
     return res.redirect('/listings');

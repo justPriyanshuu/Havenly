@@ -8,6 +8,8 @@
     <div class="card-body card-details">
       <p class="card-text">
         <br />
+        <span class="listing-owner mb-2">Owned by: <%= listing.owner.username %></span>
+        <br />
         <span class="listing-dec"><%= listing.description %></span>
         <br />
         <span class="listing-price">&#x20b9;<%= listing.price.toLocaleString('en-IN')%>/night</span>

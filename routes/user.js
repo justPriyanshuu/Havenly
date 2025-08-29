@@ -12,9 +12,11 @@ router.post('/signup', async (req, res) => {
     const { username, email, password } = req.body;
     const newUser = new User({ email, username });
     const registeredUser = await User.register(newUser, password);
-    console.log(registeredUser);
-    req.flash('success', 'Welcome to Havenly');
-    res.redirect('/listings');
+    await req.login(registeredUser, (err) => {
+      if (err) return next(err);
+      req.flash('success', 'Welcome to Havenly!');
+      res.redirect('/listings');
+    });
   } catch (e) {
     req.flash('error', 'Some error occured');
     res.redirect('/signup');
