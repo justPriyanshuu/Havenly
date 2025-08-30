@@ -50,9 +50,15 @@
     </div>
     <% } %>
   </div>
-
-  <hr />
-  <% if(currUser){ %>
+  <hr>
+  <% if(!currUser){ %>
+  <div class="d-flex justify-content-center mb-4">
+    <div class="card p-3 shadow-sm text-center" style="max-width: 400px; border-radius: 1rem">
+      <p class="mb-2">Please login to leave a review.</p>
+      <a href="/login" class="fw-semibold text-decoration-none">Login</a>
+    </div>
+  </div>
+  <% } %> <% if(currUser){ %>
   <div class="reviews mt-3 mb-4">
     <h4>Leave a review</h4>
     <form

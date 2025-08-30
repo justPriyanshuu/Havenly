@@ -9,13 +9,13 @@ module.exports.signUp = async (req, res) => {
     const { username, email, password } = req.body;
     const newUser = new User({ email, username });
     const registeredUser = await User.register(newUser, password);
-    await req.login(registeredUser, (err) => {
+    req.login(registeredUser, (err) => {
       if (err) return next(err);
       req.flash('success', 'Welcome to Havenly!');
       res.redirect('/listings');
     });
   } catch (e) {
-    req.flash('error', 'Some error occured');
+    req.flash('error', e.message);
     res.redirect('/signup');
   }
 };
@@ -25,8 +25,10 @@ module.exports.renderLogin = (req, res) => {
 };
 
 module.exports.login = async (req, res) => {
-  req.flash('Welcome back to Havenly!');
-  res.redirect('/listings');
+  req.flash('success', 'Welcome back to Havenly!');
+  const redirectUrl = res.locals.redirectUrl || '/listings';
+  delete req.session.returnTo;
+  res.redirect(redirectUrl);
 };
 
 module.exports.logout = (req, res) => {
