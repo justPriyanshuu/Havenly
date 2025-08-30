@@ -10,10 +10,7 @@ const listingController = require('../controllers/listing');
 router
   .route('/')
   .get(listingController.renderIndex)
-  .post(upload.single('listing[image]'), (req, res) => {
-    res.send(req.file);
-  });
-// .post(listingController.createListing);
+  .post(upload.single('listing[image]'), listingController.createListing);
 
 router.get('/add', isLoggedIn, listingController.renderCreateListing);
 
