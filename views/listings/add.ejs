@@ -4,7 +4,13 @@
     <div class="text-center">
       <h3>Create a Listing</h3>
     </div>
-    <form action="/listings" method="post" novalidate class="needs-validation">
+    <form
+      action="/listings"
+      method="post"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
       <div class="mb-2">
         <label for="title" class="form-label">Title</label>
         <input
@@ -28,13 +34,8 @@
         <div class="invalid-feedback">Description is invalid!</div>
       </div>
       <div class="mb-2">
-        <label for="image" class="form-label">Image Link</label>
-        <input
-          type="text"
-          name="listing[image]"
-          class="form-control"
-          placeholder="Enter image link/url"
-        />
+        <label for="image" class="form-label">Upload Image</label>
+        <input type="file" name="listing[image]" class="form-control" />
       </div>
       <div class="row">
         <div class="mb-2 col-md-4">

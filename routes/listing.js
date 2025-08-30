@@ -2,10 +2,17 @@ const express = require('express');
 const router = express.Router();
 const Listing = require('../models/listing');
 const { isLoggedIn } = require('../middleware');
-
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 const listingController = require('../controllers/listing');
 
-router.route('/').get(listingController.renderIndex).post(listingController.createListing);
+router
+  .route('/')
+  .get(listingController.renderIndex)
+  .post(upload.single('listing[image]'), (req, res) => {
+    res.send(req.file);
+  });
+// .post(listingController.createListing);
 
 router.get('/add', isLoggedIn, listingController.renderCreateListing);
 
