@@ -5,25 +5,16 @@ const { isLoggedIn } = require('../middleware');
 
 const listingController = require('../controllers/listing');
 
-// index route
-router.get('/', listingController.renderIndex);
+router.route('/').get(listingController.renderIndex).post(listingController.createListing);
 
-//add route
 router.get('/add', isLoggedIn, listingController.renderCreateListing);
 
-//create route
-router.post('/', listingController.createListing);
+router
+  .route('/:id')
+  .get(listingController.showListing)
+  .put(isLoggedIn, listingController.editListing)
+  .delete(isLoggedIn, listingController.deleteListing);
 
-//show route
-router.get('/:id', listingController.showListing);
-
-//edit route
 router.get('/:id/edit', isLoggedIn, listingController.renderEditListing);
-
-//update route
-router.put('/:id', isLoggedIn, listingController.editListing);
-
-//delete route
-router.delete('/:id', isLoggedIn, listingController.deleteListing);
 
 module.exports = router;

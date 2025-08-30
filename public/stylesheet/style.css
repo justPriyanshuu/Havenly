@@ -484,3 +484,34 @@ body.signup .container {
   outline: none !important;
   box-shadow: none !important;
 }
+
+
+.rating-star {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.rating-star fieldset {
+  border: none;          
+  margin: 0;
+  padding: 0;
+}
+
+.rating-star .starability-basic {
+  font-size: 1rem;        
+  display: inline-block;
+}
+
+
+.allReviews-star {
+  font-size: 1.4rem;        
+  margin: 0.3rem 0 0.5rem;  
+  display: block;
+}
+
+
+.review-card .allReviews-star {
+  text-align: left; 
+}
+
