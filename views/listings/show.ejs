@@ -8,7 +8,9 @@
     <div class="card-body card-details">
       <p class="card-text">
         <br />
-        <span class="listing-owner mb-2">Owned by: <%= listing.owner.username %></span>
+        <span class="listing-owner mb-2">
+          Owned by: <%= listing.owner ? listing.owner.username : "Priyanshu" %>
+        </span>
         <br />
         <span class="listing-dec"><%= listing.description %></span>
         <br />
