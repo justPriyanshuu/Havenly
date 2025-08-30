@@ -3,7 +3,8 @@ const router = express.Router();
 const Listing = require('../models/listing');
 const { isLoggedIn } = require('../middleware');
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
+const { storage } = require('../cloudConfig');
+const upload = multer({ storage });
 const listingController = require('../controllers/listing');
 
 router
