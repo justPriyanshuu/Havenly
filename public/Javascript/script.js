@@ -21,3 +21,12 @@
     );
   });
 })();
+
+const switchBtn = document.getElementById('switchCheckDefault');
+const gstLabels = document.querySelectorAll('.gst-slab');
+
+switchBtn.addEventListener('change', () => {
+  gstLabels.forEach((label) => {
+    label.style.display = switchBtn.checked ? 'inline' : 'none';
+  });
+});

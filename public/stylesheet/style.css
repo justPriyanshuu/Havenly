@@ -515,3 +515,119 @@ body.signup .container {
   text-align: left; 
 }
 
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  padding: 5px 20px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  margin-bottom: -2rem;
+  margin-top: 0.5rem;
+  /* border: 2px solid black; */
+}
+
+.filter-bar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.filter {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  min-width: 90px;
+}
+
+.filter:hover {
+  background: #f7f7f7;
+  transform: translateY(-2px);
+}
+
+.filter-icon {
+  background: #f1f1f1;
+  color: #444;
+  font-size: 15px;
+  padding: 12px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+}
+
+.filter:hover .filter-icon {
+  background: #ff385c;
+  color: white;
+}
+
+.filter-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+}
+
+.tax-switch {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+  padding: 10px 16px;
+  flex: 0 0 auto;   
+  margin-left: 0;    
+  min-width: 14rem;   
+  position: relative;
+  top: 0.7rem;
+  left: 1rem;
+}
+
+/* Hide the default switch */
+.tax-switch-btn {
+  width: 50px;
+  height: 28px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #ccc;
+  border-radius: 50px;
+  position: relative;
+  /* left: 0.5rem; */
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Active state */
+.tax-switch-btn:checked {
+  background-color: #ff385c; /* Airbnb pink */
+}
+
+.tax-switch-btn:checked::before {
+  transform: translateX(22px);
+}
+
+/* Label text */
+.tax-switch-text {
+  font-size: 15px;
+  color: #444;
+  position: relative;
+  left: 2rem;
+}
+
+.gst-slab {
+  font-style: normal;
+  font-size: 13px;
+  color: #666;
+  margin-left: 5px;
+  display: none; /* hidden by default */
+}
