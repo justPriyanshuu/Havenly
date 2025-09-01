@@ -17,7 +17,7 @@ router.get('/add', isLoggedIn, listingController.renderCreateListing);
 router
   .route('/:id')
   .get(listingController.showListing)
-  .put(isLoggedIn, listingController.editListing)
+  .put(isLoggedIn, upload.single('listing[image]'), listingController.editListing)
   .delete(isLoggedIn, listingController.deleteListing);
 
 router.get('/:id/edit', isLoggedIn, listingController.renderEditListing);
