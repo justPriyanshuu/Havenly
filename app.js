@@ -20,6 +20,8 @@ const listingRouter = require('./routes/listing.js');
 const reviewRouter = require('./routes/reviews.js');
 const userRouter = require('./routes/user.js');
 
+const dbUrl = process.env.ATLASDB_URL;
+
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
@@ -46,8 +48,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.engine('ejs', engine);
 app.use(express.static(path.join(__dirname, 'public')));
-
-const dbUrl = process.env.ATLASDB_URL;
 
 main().catch((err) => console.log(err));
 
