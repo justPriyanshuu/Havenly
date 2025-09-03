@@ -8,6 +8,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const engine = require('ejs-mate');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 
 const passport = require('passport');
@@ -19,8 +20,17 @@ const listingRouter = require('./routes/listing.js');
 const reviewRouter = require('./routes/reviews.js');
 const userRouter = require('./routes/user.js');
 
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  crypto: {
+    secret: process.env.SECRET,
+  },
+  touchAfter: 24 * 3600,
+});
+
 const sessionOptions = {
-  secret: 'mysecretCode',
+  store,
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -37,10 +47,12 @@ app.use(methodOverride('_method'));
 app.engine('ejs', engine);
 app.use(express.static(path.join(__dirname, 'public')));
 
+const dbUrl = process.env.ATLASDB_URL;
+
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/Havenly');
+  await mongoose.connect(dbUrl);
 }
 
 app.get('/', (req, res) => {
