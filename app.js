@@ -21,26 +21,29 @@ const reviewRouter = require('./routes/reviews.js');
 const userRouter = require('./routes/user.js');
 
 const dbUrl = process.env.ATLASDB_URL;
+const secret = process.env.SECRET;
 
 const store = MongoStore.create({
   mongoUrl: dbUrl,
-  crypto: {
-    secret: process.env.SECRET,
-  },
+  crypto: { secret },
   touchAfter: 24 * 3600,
 });
 
 const sessionOptions = {
   store,
-  secret: process.env.SECRET,
+  name: 'session',
+  secret,
   resave: false,
   saveUninitialized: true,
   cookie: {
-    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-    maxAge: 7 * 24 * 60 * 60 * 1000,
     httpOnly: true,
+    expires: Date.now() + 1000 * 60 * 60 * 24 * 7, // 1 week
+    maxAge: 1000 * 60 * 60 * 24 * 7,
   },
 };
+
+app.use(session(sessionOptions));
+app.use(flash());
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -50,7 +53,6 @@ app.engine('ejs', engine);
 app.use(express.static(path.join(__dirname, 'public')));
 
 main().catch((err) => console.log(err));
-
 async function main() {
   await mongoose.connect(dbUrl);
 }
@@ -58,9 +60,6 @@ async function main() {
 app.get('/', (req, res) => {
   res.redirect('/listings');
 });
-
-app.use(session(sessionOptions));
-app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
