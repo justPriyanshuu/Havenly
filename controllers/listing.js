@@ -1,8 +1,18 @@
 const Listing = require('../models/listing');
 
 module.exports.renderIndex = async (req, res) => {
-  const allListings = await Listing.find({});
-  res.render('listings/home.ejs', { allListings });
+  const { q } = req.query;
+  let listings;
+
+  if (q) {
+    listings = await Listing.find({
+      title: { $regex: q, $options: 'i' }, // "i" = case-insensitive
+    });
+  } else {
+    listings = await Listing.find();
+  }
+
+  res.render('listings/home.ejs', { listings, query: q });
 };
 
 module.exports.renderCreateListing = (req, res) => {

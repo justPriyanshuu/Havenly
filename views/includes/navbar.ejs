@@ -18,10 +18,10 @@
         <a class="nav-link" href="/listings/add">Create</a>
       </div>
       <div class="search-bar">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search Destination" aria-label="Search" />
+        <form class="d-flex" role="search" action="/listings" method="get">
+          <input class="form-control me-2" type="search" name="q" placeholder="Search Destination" aria-label="Search" />
           <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        </form> 
       </div>
       <div class="navbar-nav">
         <%if(!currUser){%>
